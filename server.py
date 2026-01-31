@@ -118,19 +118,19 @@ async def resource_servers() -> str:
 # -------------------------
 
 
-@mcp.tool(name="agents.get")
+@mcp.tool(name="agents-get")
 async def agents_get(agent_id: str) -> Dict[str, Any]:
     """Fetch an agent by ID."""
     return await bd_from_request().request("GET", f"/api/agents/{agent_id}")
 
 
-@mcp.tool(name="agents.list")
+@mcp.tool(name="agents-list")
 async def agents_list() -> Dict[str, Any]:
     """List agents registered in the specified Barndoor org."""
     return await bd_from_request().request("GET", "/api/agents")
 
 
-@mcp.tool(name="agents.register")
+@mcp.tool(name="agents-register")
 async def agents_register(
     name: str,
     application_directory_id: Optional[str] = None,
@@ -153,7 +153,7 @@ async def agents_register(
 # -------------------------
 
 
-@mcp.tool(name="policies.disable")
+@mcp.tool(name="policies-disable")
 async def policies_disable(policy_id: str) -> Dict[str, Any]:
     """
     Disable a policy by ID.
@@ -163,7 +163,7 @@ async def policies_disable(policy_id: str) -> Dict[str, Any]:
     return await bd_from_request().request("PUT", f"/api/policy/disable?id={encoded}")
 
 
-@mcp.tool(name="policies.enable")
+@mcp.tool(name="policies-enable")
 async def policies_enable(policy_id: str) -> Dict[str, Any]:
     """
     Enable a policy by ID.
@@ -173,7 +173,7 @@ async def policies_enable(policy_id: str) -> Dict[str, Any]:
     return await bd_from_request().request("PUT", f"/api/policy/enable?id={encoded}")
 
 
-@mcp.tool(name="policies.get")
+@mcp.tool(name="policies-get")
 async def policies_get(policy_id: str) -> Dict[str, Any]:
     """
     Get a policy by its ID.
@@ -184,7 +184,7 @@ async def policies_get(policy_id: str) -> Dict[str, Any]:
     return await bd_from_request().request("GET", f"/api/policy?id={encoded}")
 
 
-@mcp.tool(name="policies.list")
+@mcp.tool(name="policies-list")
 async def policies_list(
     server_id: Optional[str] = None,
     agent_id: Optional[str] = None,
@@ -205,7 +205,7 @@ async def policies_list(
     return await bd_from_request().request("GET", f"/api/policies?{qs}")
 
 
-@mcp.tool(name="policies.list_all")
+@mcp.tool(name="policies-list-all")
 async def policies_list_all() -> Dict[str, Any]:
     """
     Best-effort: list policies with no filter.
@@ -214,7 +214,7 @@ async def policies_list_all() -> Dict[str, Any]:
     return await bd_from_request().request("GET", "/api/policies")
 
 
-@mcp.tool(name="policies.upsert")
+@mcp.tool(name="policies-upsert")
 async def policies_upsert(policy_document: Dict[str, Any]) -> Dict[str, Any]:
     """
     Create or update a policy document (raw).
@@ -223,7 +223,7 @@ async def policies_upsert(policy_document: Dict[str, Any]) -> Dict[str, Any]:
     return await bd_from_request().request("POST", "/api/policy", json_body=policy_document)
 
 
-@mcp.tool(name="policies.validate_shape")
+@mcp.tool(name="policies-validate-shape")
 async def policies_validate_shape(policy_document: Dict[str, Any]) -> Dict[str, Any]:
     """
     Lightweight safety checks so the LLM doesn’t accidentally send nonsense.
@@ -250,13 +250,13 @@ async def policies_validate_shape(policy_document: Dict[str, Any]) -> Dict[str, 
 # -------------------------
 
 
-@mcp.tool(name="servers.get")
+@mcp.tool(name="servers-get")
 async def servers_get(server_id: str) -> Dict[str, Any]:
     """Fetch a server registration by id."""
     return await bd_from_request().request("GET", f"/api/servers/{server_id}")
 
 
-@mcp.tool(name="servers.list")
+@mcp.tool(name="servers-list")
 async def servers_list() -> Dict[str, Any]:
     """List all registered MCP servers in the specified Barndoor org."""
     return await bd_from_request().request("GET", "/api/servers")
