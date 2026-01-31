@@ -60,11 +60,11 @@ Because credentials are request-scoped:
 ---
 
 ## Project Structure
-
+```
 .
 ├── app.py        # ASGI entrypoint (CORS + MCP HTTP mounting)
 ├── server.py     # FastMCP server (tools + resources)
-├── README.md
+```
 
 ---
 
@@ -79,29 +79,36 @@ Because credentials are request-scoped:
 ## Installation
 
 Create a virtual environment:
-
+```bash
 uv venv
 source .venv/bin/activate
+```
 
 Install dependencies:
-
-uv pip install fastmcp httpx starlette uvicorn
-
+```bash
+uv pip install -r requirements.txt
+```
 ---
 
 ## Running Locally
 
 Start the MCP server:
 
+```bash
 uv run uvicorn app:app --host 0.0.0.0 --port 8000
+```
 
 Health check:
 
+```bash
 curl http://127.0.0.1:8000/health
+```
 
-The MCP endpoint is available at:
+If running on local machine, the MCP endpoint is available at:
 
+```
 http://127.0.0.1:8000/mcp
+```
 
 ---
 
@@ -109,17 +116,21 @@ http://127.0.0.1:8000/mcp
 
 Connect using Streamable HTTP to:
 
+```
 http://127.0.0.1:8000/mcp
+```
 
 Required headers:
 
+```
 X-Barndoor-Token: <your-barndoor-token>
 X-Barndoor-Org-Id: <your-org-id>
+```
 
 Optional:
-
+```
 X-Barndoor-Base-Domain: platform.barndoor.ai
-
+```
 ---
 
 ## Available Resources
