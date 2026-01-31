@@ -176,7 +176,7 @@ async def policies_enable(policy_id: str) -> Dict[str, Any]:
 @mcp.tool(name="policies-get")
 async def policies_get(policy_id: str) -> Dict[str, Any]:
     """
-    Get a policy by its ID.
+    Get a policy by its ID. Policy IDs follow the pattern 'resource.{server_id}.v{version}/{agent_id}' where server_id is the MCP server and agent_id is the agent/application and version is the version (typically 'default'). Server-level policies omit the agent_id and look like resource.{server_id}.v{version} .
     IMPORTANT: policy_id often contains '/', so we URL-encode it.
     Endpoint: GET /api/policy?id=ENCODED_ID
     """
