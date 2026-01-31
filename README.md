@@ -36,7 +36,7 @@ Barndoor Platform API
 
 ---
 
-## Authentication & Multi-Tenancy
+## Authentication 
 
 This server does **not** store credentials globally.
 
@@ -59,6 +59,29 @@ Because credentials are request-scoped:
 - Multiple users can safely share one hosted MCP endpoint
 - Different orgs and tokens remain fully isolated
 - No session data leaks between users
+
+## Adding this server to Barndoor (MCePtion)
+
+If you deploy this MCP server app to the cloud, you can add it as a custom
+server on your Barndoor account. Yes, very meta. However, because this
+MCP server is using API tokens that are passed in the header, you'll
+need to supply a Barndoor API token and your tenant/org server slug as variables
+(see above).
+
+When adding this server, you'd choose Remote, provided the endpoint URL
+where you're hosting it, choose Generic for auth method, and then
+add `X-Barndoor-Token` and `X-Barndoor-Org-Id` as credential fields.
+On the final step of the server config, you'll need to provide the
+values for the both of these fields. You can create an API token from
+the User menu on Barndoor.
+
+`TODO: Directions for getting the tenant/org slug.`
+
+Caveat: Anyone user on your Barndoor tenant that Connects to this server
+will automatically connect (because it's a statically set APi token). You
+will need to update the policies on the Barndoor MCP server tools 
+accordingly. At this point, if you're confused, reach out to the
+customer support team.
 
 ---
 
