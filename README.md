@@ -1,4 +1,7 @@
-# Barndoor MCP Server
+# Barndoor MCP Server (Prototype)
+
+[!WARNING]
+This is a prototype example app and not intended for production use.
 
 An **MCP (Model Context Protocol) server** for managing a Barndoor.ai account.
 
