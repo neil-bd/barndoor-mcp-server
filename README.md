@@ -172,7 +172,7 @@ X-Barndoor-Base-Domain: platform.barndoor.ai
 Agents:
 - agents.list
 - agents.get
-- agents.register
+- agents.register (TODO - not available)
 
 Servers:
 - servers.list
